@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 div {
     font-family: 'EB Garamond', serif;
@@ -12,15 +13,14 @@ nav {
 nav a {
     color: #02183c !important;
 }
-
-
 .siteName {
-    font-size: 30px;
+    font-size: 35px;
     transition: .3s;
 }
 .siteLink {
-    font-size: 20px;
+    font-size: 15px;
     transition: .3s;
+    font-family: 'Montserrat', sans-serif !important;
 }
 .navbar-brand:hover {
     color: #3766a1 !important;
