@@ -22,6 +22,7 @@ const Login = (props) => {
     }
 
     const handleLogin = (e) => {
+        
         e.preventDefault();
         const seekerCreds = {
             username: credentials.username,
@@ -37,6 +38,11 @@ const Login = (props) => {
               ) {
                 sessionStorage.setItem("token", parsedResponse.token);
                 sessionStorage.setItem("seekerId", parsedResponse.seeker_id)
+                // Finds the user on log in and sends it back up to Seeker.js 
+                AuthApiManager.getUser(parsedResponse.seeker_id)
+                .then((user) => {
+                    props.setUser(user)
+                })
               }
             })
             .then(() => props.history.push("/dashboard"));

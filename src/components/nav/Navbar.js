@@ -16,12 +16,12 @@ const SeekerNav = (props) => {
         <NavLink href="/dashboard " className="siteName">
           Seeker
         </NavLink>
-        {props.loggedIn ? (
+        {props.user ? (
         <>
-          <NavLink>Network</NavLink>
-          <NavLink>Interviews</NavLink>
-          <NavLink>Applications</NavLink>
-          <NavLink onClick ={handleLogout} href="/">Logout</NavLink>
+          <NavLink className="siteLink">Network</NavLink>
+          <NavLink className="siteLink">Interviews</NavLink>
+          <NavLink className="siteLink">Applications</NavLink>
+          <NavLink onClick ={handleLogout} href="/" className="siteLink">Logout</NavLink>
         </>
         ) : (
           <NavLink href="/login" className="siteLink">
