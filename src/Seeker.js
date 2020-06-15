@@ -9,6 +9,8 @@ import Dashboard from "../src/components/home/Dashboard";
 import "./css/Seeker.css";
 import "semantic-ui-css/semantic.min.css";
 import AuthApiManager from "../src/modules/auth/AuthApiManager";
+import CompanyList from "./components/network/companies/CompanyList";
+import CompanyAddForm from "./components/network/companies/CompanyAddForm";
 
 // Seeker holds all routing
 const Seeker = (props) => {
@@ -64,6 +66,30 @@ const Seeker = (props) => {
           ) : (
             <>
                <SeekerNav loggedIn={loggedIn} user={user} /> <Dashboard user={user} /> 
+            </>
+          )
+        }
+      />
+      <Route 
+      exact path ="/network"
+      render={(props) =>
+        user == "" ? (
+            <Loading />
+          ) : (
+            <>
+               <SeekerNav loggedIn={loggedIn} user={user} /> <CompanyList user={user} {...props} token={token}/> 
+            </>
+          )
+        }
+      />
+       <Route 
+      exact path ="/network/company/form"
+      render={(props) =>
+        user == "" ? (
+            <Loading />
+          ) : (
+            <>
+               <SeekerNav loggedIn={loggedIn} user={user} /> <CompanyAddForm {...props} user={user} token={token} /> 
             </>
           )
         }

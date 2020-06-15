@@ -1,7 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-
+/* General */
+button {
+    background-color:#ff8427 !important;
+    color: white !important;
+    transition: .3s;
+}
+button:hover {
+    background-color: #febe50 !important;
+    transition: .3s;
+    color: white !important;
+}
 /* Home Page */
 
 .home {
@@ -41,37 +51,31 @@
     color: #02183c !important; 
 }
 
-.loginForm button {
-    background-color: #02183c !important;
-    color: white !important;
-    transition: .3s;
-}
-.loginForm button:hover {
-    background-color: #3766A1 !important;
-    transition: .3s;
-    color: white !important;
-}
-
-/* Register Form */
-.registerForm button {
-    background-color: #02183c !important;
-    color: white !important;
-    transition: .3s;
-}
-.registerForm button:hover {
-    background-color: #3766A1 !important;
-    transition: .3s;
-    color: white !important;
-}
-
-.ui {
-    color: #02183c !important; 
-}
-
 /* Dashboard */
 
 .dashboardtxt {
     font-family: 'Montserrat', sans-serif !important;
     color: #02183c !important; 
     font-size: 30px;
+}
+
+/* Companies */
+.companyHeader {
+    display: flex;
+    flex-direction: row;
+}
+.companyHeader .ui {
+    background-color: #ff8427 !important;
+    transition:.3s;
+    width: 50px;
+    height: 50px;
+}
+.companyHeader .ui:hover {
+    background-color: #febe50 !important;
+    transition: .3s;
+}
+
+.companyHeader h1 {
+    font-family:  'EB Garamond', serif !important;
+    color: #ff8427 !important; 
 }
