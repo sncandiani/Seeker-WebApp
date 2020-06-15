@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    font-family: 'EB Garamond', serif !important;
+}
+
+/* Home Page */
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    font-size: 50px;
+    color: #02183c !important; 
+    padding-top: 20px;
+    margin: 50px;
+}
+.motto {
+    width: 40% ;
+    height: 60%;
+    padding-right: 50px;
+}
+
+.carousel img {
+    width: 900px !important;
+    height: 500px !important;
+}
+
+/* Login Form */
+.ui{
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+.ui.message{
+    background-color: white !important;
+    color: #02183c !important;  
+}
+
+.loginForm a {
+    color: #3766A1 !important;
+}
+
+.loginForm h2{
+    color: #02183c !important; 
+}
+
+.loginForm button {
+    background-color: #02183c !important;
+    color: white !important;
+    transition: .3s;
+}
+.loginForm button:hover {
+    background-color: #3766A1 !important;
+    transition: .3s;
+    color: white !important;
+}
+
+/* Register Form */
+.registerForm button {
+    background-color: #02183c !important;
+    color: white !important;
+    transition: .3s;
+}
+.registerForm button:hover {
+    background-color: #3766A1 !important;
+    transition: .3s;
+    color: white !important;
+}
+
+.ui {
+    color: #02183c !important; 
+}
