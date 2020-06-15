@@ -18,7 +18,7 @@ const SeekerNav = (props) => {
         </NavLink>
         {props.user ? (
         <>
-          <NavLink className="siteLink">Network</NavLink>
+          <NavLink className="siteLink" href="/network">Network</NavLink>
           <NavLink className="siteLink">Interviews</NavLink>
           <NavLink className="siteLink">Applications</NavLink>
           <NavLink onClick ={handleLogout} href="/" className="siteLink">Logout</NavLink>
