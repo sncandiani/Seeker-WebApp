@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from "react-router-dom"
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import Seeker from "./Seeker"
+// Render Seeker, which holds all primary navigation
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Seeker />
+  </Router>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
+
+div {
+    font-family: 'EB Garamond', serif;
+}
+nav {
+    background-color: white !important;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+nav a {
+    color: #02183c !important;
+}
+
+
+.siteName {
+    font-size: 30px;
+    transition: .3s;
+}
+.siteLink {
+    font-size: 20px;
+    transition: .3s;
+}
+.navbar-brand:hover {
+    color: #3766a1 !important;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #3766a1 !important;
+    transition: .3s;
+}
+
