@@ -22,6 +22,14 @@ const ApiManager =  {
            }, 
            body: JSON.stringify()
        }).then((resp) => resp.json())
+    }, 
+    deleteCompany(companyId) {
+        return fetch(`${baseUrl}companies/${companyId}`, {
+            method: "DELETE"
+        })
+    }, 
+    retrieveCompany(companyId, token) {
+        return fetch(`${baseUrl}companies/${companyId}`).then(resp => resp.json())
     }
 }
 
