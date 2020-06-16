@@ -36,7 +36,6 @@ button:hover {
 /* Login Form */
 .ui{
     font-family: 'Montserrat', sans-serif !important;
-
 }
 .ui.message{
     background-color: white !important;
@@ -63,6 +62,7 @@ button:hover {
 .companyHeader {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 .companyHeader .ui {
     background-color: #ff8427 !important;
@@ -75,7 +75,23 @@ button:hover {
     transition: .3s;
 }
 
-.companyHeader h1 {
+.companyHeader h1 {  
     font-family:  'EB Garamond', serif !important;
     color: #ff8427 !important; 
+}
+
+.companyCards { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.companyCard {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.companyCard p {
+    font-family: 'Montserrat', sans-serif !important;
 }

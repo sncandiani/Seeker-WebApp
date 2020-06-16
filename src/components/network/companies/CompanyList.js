@@ -30,9 +30,12 @@ const CompanyList = (props) => {
           <Icon name="plus" />
         </Button>
       </div>
+      
+      <div className="companyCards">
       {companies.map((company) => (
         <CompanyCard key={company.id} company={company} {...props} />
       ))}
+      </div>
     </>
   );
 };

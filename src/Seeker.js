@@ -12,6 +12,8 @@ import AuthApiManager from "../src/modules/auth/AuthApiManager";
 import CompanyList from "./components/network/companies/CompanyList";
 import CompanyAddForm from "./components/network/companies/CompanyAddForm";
 import CompanyDetail from "./components/network/companies/CompanyDetail";
+import CompanyEdit from "./components/network/companies/CompanyEdit";
+import EmployeeAddForm from "./components/network/employees/EmployeeAddForm"
 
 // Seeker holds all routing
 const Seeker = (props) => {
@@ -33,7 +35,7 @@ const Seeker = (props) => {
   };
   useEffect(() => {
     tokenCheck();
-    findUser()
+    findUser();
   }, []);
   return (
     <>
@@ -42,7 +44,7 @@ const Seeker = (props) => {
         path="/"
         render={(props) => (
           <>
-             <SeekerNav loggedIn={loggedIn} /> <Home /> 
+            <SeekerNav loggedIn={loggedIn} /> <Home />
           </>
         )}
       />
@@ -66,43 +68,89 @@ const Seeker = (props) => {
             <Loading />
           ) : (
             <>
-               <SeekerNav loggedIn={loggedIn} user={user} /> <Dashboard user={user} /> 
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <Dashboard user={user} />
             </>
           )
         }
       />
-      <Route 
-      exact path ="/network"
-      render={(props) =>
-        user == "" ? (
+      <Route
+        exact
+        path="/network"
+        render={(props) =>
+          user == "" ? (
             <Loading />
           ) : (
             <>
-               <SeekerNav loggedIn={loggedIn} user={user} /> <CompanyList user={user} {...props} token={token}/> 
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <CompanyList user={user} {...props} token={token} />
             </>
           )
         }
       />
-       <Route 
-      exact path ="/network/company/form"
-      render={(props) =>
-        user == "" ? (
+      <Route
+        exact
+        path="/network/company/form"
+        render={(props) =>
+          user == "" ? (
             <Loading />
           ) : (
             <>
-               <SeekerNav loggedIn={loggedIn} user={user} /> <CompanyAddForm {...props} user={user} token={token} /> 
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <CompanyAddForm {...props} user={user} token={token} />
             </>
           )
         }
       />
-      <Route 
-      exact path ="/network/companies/:companyId(\d+)/"
-      render={(props) =>
-        user == "" ? (
+      <Route
+        exact
+        path="/network/companies/:companyId(\d+)/"
+        render={(props) =>
+          user == "" ? (
             <Loading />
           ) : (
             <>
-               <SeekerNav loggedIn={loggedIn} user={user} /> <CompanyDetail {...props} user={user} token={token} companyId={parseInt(props.match.params.companyId)} /> 
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <CompanyDetail
+                {...props}
+                user={user}
+                token={token}
+                companyId={parseInt(props.match.params.companyId)}
+              />
+            </>
+          )
+        }
+      />
+
+<Route
+        exact
+        path="/network/companies/:companyId(\d+)/edit"
+        render={(props) =>
+          user == "" ? (
+            <Loading />
+          ) : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <CompanyEdit
+                {...props}
+                user={user}
+                token={token}
+                companyId={parseInt(props.match.params.companyId)}
+              />
+            </>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/companies/:companyId(\d+)/employee/form"
+        render={(props) =>
+          user == "" ? (
+            <Loading />
+          ) : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <EmployeeAddForm {...props} user={user} token={token} companyId={parseInt(props.match.params.companyId)} />
             </>
           )
         }

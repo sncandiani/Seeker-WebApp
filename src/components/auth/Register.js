@@ -105,7 +105,7 @@ const Register = (props) => {
                 type="password"
                 required
                 ></FormInput>
-                <Button onClick={handleRegister} fluid size="large">
+                <Button onSubmit={handleRegister} fluid size="large">
                   Register
                 </Button>
               </Segment>

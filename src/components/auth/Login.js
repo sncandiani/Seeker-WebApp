@@ -83,7 +83,7 @@ const Login = (props) => {
                   required
                 />
 
-                <Button onClick={handleLogin} fluid size="large">
+                <Button onSubmit={handleLogin} fluid size="large">
                   Login
                 </Button>
               </Segment>
