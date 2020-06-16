@@ -8,9 +8,11 @@ const CompanyCard = (props) => {
 // update and delete the company
     return (
         <>
-        <h1>{props.company.name}</h1>
-        <h4>{props.company.industry}</h4>
-        <Button onClick={() => props.history.push(`/network/companies/${props.company.id}`)}>View details</Button>
+        <div className="companyCard">
+            <p>{props.company.name}</p>
+            <p>{props.company.industry}</p>
+            <Button onClick={() => props.history.push(`/network/companies/${props.company.id}`)}>View details</Button>
+        </div>
         </>
     )
 }
