@@ -92,6 +92,39 @@ const ApiManager =  {
                 }, 
                 body: JSON.stringify(employee)
             })
+        }, 
+        getInterviews(token) {
+            return fetch(`${baseUrl}interviews`, {
+                method: "GET", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify()
+            }).then(resp => resp.json())
+        }, 
+        getInterviewTypes(token) {
+            return fetch(`${baseUrl}interviewTypes`, {
+                method: "GET", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify()
+            }).then(resp => resp.json())
+        }, 
+        addInterview(interview, token) {
+            return fetch(`${baseUrl}interviews`, {
+                method: "POST", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token }`
+                }, 
+                body: JSON.stringify(interview)
+            })
         }
 }
 

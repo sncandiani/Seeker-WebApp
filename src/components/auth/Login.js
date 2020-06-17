@@ -31,6 +31,7 @@ const Login = (props) => {
           AuthApiManager
             .loginUser(seekerCreds)
             .then((parsedResponse) => {
+              console.log(parsedResponse)
               if (
                 "valid" in parsedResponse &&
                 parsedResponse.valid &&
@@ -83,7 +84,7 @@ const Login = (props) => {
                   required
                 />
 
-                <Button onSubmit={handleLogin} fluid size="large">
+                <Button onClick={handleLogin} fluid size="large">
                   Login
                 </Button>
               </Segment>
