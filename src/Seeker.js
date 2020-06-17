@@ -15,7 +15,8 @@ import CompanyDetail from "./components/network/companies/CompanyDetail";
 import CompanyEdit from "./components/network/companies/CompanyEdit";
 import EmployeeAddForm from "./components/network/employees/EmployeeAddForm"
 import EmployeeEdit from "./components/network/employees/EmployeeEdit"
-
+import InterviewList from "./components/interviews/InterviewList"
+import InterviewAddForm from "./components/interviews/InterviewAddForm"
 // Seeker holds all routing
 const Seeker = (props) => {
   const [loggedIn, setIsLoggedIn] = useState(false);
@@ -38,6 +39,11 @@ const Seeker = (props) => {
     tokenCheck();
     findUser();
   }, []);
+  // Routing with multiple ternary operators 
+  // In order to avoid users routing to pages without logging in
+
+  // !!!TO FIX !!!!
+  // DASHBOARD LOGIN/REGISTER TERNARY ROUTING WITH LOADING PAGE
   return (
     <>
       <Route
@@ -65,11 +71,12 @@ const Seeker = (props) => {
         exact
         path="/dashboard"
         render={(props) =>
-          user == "" ? (
+          user == ""   ? (
             <Loading />
-          ) : (
+          ) 
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <Dashboard user={user} />
             </>
           )
@@ -79,11 +86,13 @@ const Seeker = (props) => {
         exact
         path="/network"
         render={(props) =>
-          user == "" ? (
-            <Loading />
-          ) : (
+          user == "" && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading />
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <CompanyList user={user} {...props} token={token} />
             </>
           )
@@ -93,11 +102,13 @@ const Seeker = (props) => {
         exact
         path="/network/company/form"
         render={(props) =>
-          user == "" ? (
-            <Loading />
-          ) : (
+          user == ""  && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading />
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <CompanyAddForm {...props} user={user} token={token} />
             </>
           )
@@ -107,11 +118,13 @@ const Seeker = (props) => {
         exact
         path="/network/companies/:companyId(\d+)/"
         render={(props) =>
-          user == "" ? (
-            <Loading />
-          ) : (
+          user == "" && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading />
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <CompanyDetail
                 {...props}
                 user={user}
@@ -127,11 +140,13 @@ const Seeker = (props) => {
         exact
         path="/network/companies/:companyId(\d+)/edit"
         render={(props) =>
-          user == "" ? (
-            <Loading />
-          ) : (
+          user == "" && !token ? (
+            props.history.push("/login")
+          )
+          : user == "" ? <Loading /> 
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <CompanyEdit
                 {...props}
                 user={user}
@@ -146,11 +161,13 @@ const Seeker = (props) => {
         exact
         path="/companies/:companyId(\d+)/employee/form"
         render={(props) =>
-          user == "" ? (
-            <Loading />
-          ) : (
+          user == ""  && !token? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading /> 
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <EmployeeAddForm {...props} user={user} token={token} companyId={parseInt(props.match.params.companyId)} />
             </>
           )
@@ -161,11 +178,13 @@ const Seeker = (props) => {
         exact
         path="/companies/:companyId(\d+)/employees/:employeeId(\d+)/edit/"
         render={(props) =>
-          user == "" ? (
-            <Loading />
-          ) : (
+          user == "" && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading /> 
+          : (
             <>
-              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <SeekerNav loggedIn={loggedIn} user={user} />
               <EmployeeEdit
                 {...props}
                 user={user}
@@ -177,7 +196,38 @@ const Seeker = (props) => {
           )
         }
       />
-
+<Route
+        exact
+        path="/interviews"
+        render={(props) =>
+          user == ""  && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading /> 
+          : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />
+              <InterviewList user={user} token={token} {...props} />
+            </>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/interviews/form"
+        render={(props) =>
+          user == ""  && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading /> 
+          : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />
+              <InterviewAddForm user={user} token={token} {...props} />
+            </>
+          )
+        }
+      />
 
     </>
   );
