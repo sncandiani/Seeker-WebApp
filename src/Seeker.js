@@ -14,6 +14,7 @@ import CompanyAddForm from "./components/network/companies/CompanyAddForm";
 import CompanyDetail from "./components/network/companies/CompanyDetail";
 import CompanyEdit from "./components/network/companies/CompanyEdit";
 import EmployeeAddForm from "./components/network/employees/EmployeeAddForm"
+import EmployeeEdit from "./components/network/employees/EmployeeEdit"
 
 // Seeker holds all routing
 const Seeker = (props) => {
@@ -155,6 +156,29 @@ const Seeker = (props) => {
           )
         }
       />
+
+<Route
+        exact
+        path="/companies/:companyId(\d+)/employees/:employeeId(\d+)/edit/"
+        render={(props) =>
+          user == "" ? (
+            <Loading />
+          ) : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />{" "}
+              <EmployeeEdit
+                {...props}
+                user={user}
+                token={token}
+                companyId={parseInt(props.match.params.companyId)}
+                employeeId={parseInt(props.match.params.employeeId)}
+              />
+            </>
+          )
+        }
+      />
+
+
     </>
   );
 };

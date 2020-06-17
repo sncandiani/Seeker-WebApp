@@ -5,6 +5,7 @@ import EmployeeCard from "../employees/EmployeeCard"
 const CompanyDetail = (props) => {
   const [company, setCompany] = useState({});
   const [employees, setEmployees] = useState([]);
+  const [isContacted, setIsContacted] = useState(false)
   const companyEmployees = []
   //   Retrieves information on the specific company and sets the state
   const retrieveCompany = () => {
@@ -20,7 +21,7 @@ const CompanyDetail = (props) => {
       });
     });
   };
-
+// Gets employees associated with the company
   const getEmployees = () => {
       ApiManager.getEmployees(props.token)
       .then((employees) => {
@@ -33,15 +34,19 @@ const CompanyDetail = (props) => {
       })
   }
 
-
   const handleDelete = () => {
     const confirm = window.confirm(
       `Are you sure you would like to delete ${company.name} and all its employees?`
     );
     if (confirm) {
-      //   !!! TO UPDATE !!!
-      // Delete all associated employees
-      ApiManager.deleteCompany(company.id).then(() =>
+    //   When a company is deleted, all associated employees will be soft deleted as well
+      ApiManager.deleteCompany(company.id)
+      .then(() => {
+          employees.forEach(employee => {
+              ApiManager.deleteEmployee(employee.id, props.token)
+          })
+      })
+      .then(() =>
         props.history.push("/network")
       );
     }
@@ -79,9 +84,13 @@ const CompanyDetail = (props) => {
           <Icon name="plus" />
         </Button>
       <div className="employeeCards">
-        {employees.map((employee) => (
-          <EmployeeCard key={employee.id} employee={employee} {...props} />
-        ))}
+          
+        
+          {employees.map((employee) => (
+              <EmployeeCard key={employee.id} token={props.token}employee={employee} isContacted={isContacted} companyId={company.id} setIsContacted={setIsContacted} getEmployees={getEmployees}{...props} />
+          ))}
+            
+           
       </div>
     </>
   );
