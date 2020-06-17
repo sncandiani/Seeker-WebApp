@@ -125,6 +125,11 @@ const ApiManager =  {
                 }, 
                 body: JSON.stringify(interview)
             })
+        }, 
+        deleteInterview(interviewId) {
+            return fetch(`${baseUrl}interviews/${interviewId}`, {
+                method: "DELETE"
+            })
         }
 }
 
