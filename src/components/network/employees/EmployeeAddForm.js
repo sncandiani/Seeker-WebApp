@@ -10,7 +10,8 @@ const EmployeeAddForm = (props) => {
         firstName: "", 
         lastName: "",
         position: "",
-        company_id: parseInt(props.match.params.companyId)
+        company_id: parseInt(props.match.params.companyId), 
+        isContacted: false
     })
     const handleFieldChange = (e) => {
         const stateToChange  = {...newEmployee}
@@ -23,7 +24,8 @@ const EmployeeAddForm = (props) => {
            firstName: newEmployee.firstName,
            lastName: newEmployee.lastName, 
            position: newEmployee.position,
-           company_id: parseInt(props.match.params.companyId)
+           company_id: parseInt(props.match.params.companyId), 
+           isContacted: false
        }
        ApiManager.addEmployee(newEmployeeCreds, props.token)
        .then(() => props.history.push(`/network/companies/${props.match.params.companyId}`))

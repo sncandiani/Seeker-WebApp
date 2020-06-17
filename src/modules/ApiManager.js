@@ -63,6 +63,36 @@ const ApiManager =  {
               },
               body: JSON.stringify(employee),
         })},
+        deleteEmployee(employeeId) {
+            return fetch(`${baseUrl}employees/${employeeId}`, {
+                method: "DELETE"
+            })
+        }, 
+        updateEmployeeContacted(employee, token) {
+            return fetch(`${baseUrl}employees/${employee.id}`, {
+                method: "PATCH", 
+                headers:{
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify(employee)
+            })
+        }, 
+        retrieveEmployee(employeeId) {
+            return fetch(`${baseUrl}employees/${employeeId}`).then(resp => resp.json())
+        },
+        updateEmployee(employee, token) {
+            return fetch(`${baseUrl}employees/${employee.id}`, {
+                method: "PUT", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify(employee)
+            })
+        }
 }
 
 export default ApiManager
