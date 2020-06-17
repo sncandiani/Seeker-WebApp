@@ -8,7 +8,6 @@ const InterviewList = (props) => {
     const getInterviews = () => {
         ApiManager.getInterviews(props.token)
         .then((interviews) => {
-            
             setInterviews(interviews)
         })
     }
@@ -23,7 +22,7 @@ const InterviewList = (props) => {
         {interviews ? 
         <>
         {interviews.map((interview) => (
-        <InterviewCard key={interview.id} interview={interview} {...props} />
+        <InterviewCard key={interview.id} interview={interview} getInterviews={getInterviews} token={props.token} {...props} />
       ))}
         </>
          : 
