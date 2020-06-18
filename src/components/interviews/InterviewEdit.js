@@ -6,17 +6,15 @@ const InterviewEdit = (props) => {
   const [interview, setInterview] = useState({});
   const [interviewTypes, setInterviewTypes] = useState([]);
   const [companies, setCompanies] = useState([]);
-  const [selectedCompany, setSelectedCompany] = useState([])
-  const [employees, setEmployees] = useState([]);
+  const [allEmployees, setAllEmployees] = useState([]);
   const [companyEmployees, setCompanyEmployees] = useState([])
 
     const getEmployees = () => {
         ApiManager.getEmployees(props.token)
         .then((employees) => {
-          setEmployees(employees)
+          setAllEmployees(employees)   
         })
     }
-
 
   const getInterviewTypes = () => {
     ApiManager.getInterviewTypes(props.token).then((interviewTypes) => {
@@ -51,9 +49,13 @@ const InterviewEdit = (props) => {
     stateToChange[e.target.id] = e.target.value;
     setInterview(stateToChange);
   };
-  
-  const retrieveinterview = () => {
-    ApiManager.retrieveInterview(props.match.params.interviewId).then(
+  // On initial render, the information from the interview retrieved 
+  // Will filter throught the list of all employees 
+  // Then, only the employees whose company id is associated with the interview 
+  // Will display on first render
+  const retrieveInterview = () => {
+    ApiManager.retrieveInterview(props.match.params.interviewId)
+    .then(
       (specificInterview) => {
         setInterview({
           id: specificInterview.id,
@@ -61,26 +63,35 @@ const InterviewEdit = (props) => {
           notes: specificInterview.notes,
           company: specificInterview.company_id,
           interviewType: specificInterview.interviewType_id,
-          employee: specificInterview.employee,
+          employee: specificInterview.employee_id,
         });
+        ApiManager.getEmployees(props.token)
+        .then((employees) => {
+        const firstFilterEmployees = employees.filter((employee) => employee.company_id == specificInterview.company_id)
+          setCompanyEmployees(firstFilterEmployees)  
+      })
       }
-    );
+    )
+
   };
+  
+// All renders thereafter will be filtered based on the chosen interview
+const filterEmployees = () => {
+  const filteredEmployees = allEmployees.filter((employee) => employee.company_id == parseInt(interview.company))
+    setCompanyEmployees(filteredEmployees)
+}
 
   useEffect(() => {
-    retrieveinterview();
+    retrieveInterview();
     getInterviewTypes();
     getCompanies();
     getEmployees();
   }, []);
-
+  
   useEffect(() => {
-    const filteredEmployees = employees.filter((employee) => employee.company_id == parseInt(interview.company))
-    setCompanyEmployees(filteredEmployees)
+    filterEmployees();
   }, [interview.company])
 
-
- 
   return (
     <>
       <div className="updateForm">
@@ -107,10 +118,11 @@ const InterviewEdit = (props) => {
                 onChange={handleFieldChange}
                 required
               />
+              Interview Types: 
               <select
                 className="select"
                 id="interviewType"
-                value={interview.interviewType_id}
+                value={interview.interviewType}
                 onChange={handleFieldChange}
               >
                 {interviewTypes.map((interviewType) => (
@@ -119,10 +131,11 @@ const InterviewEdit = (props) => {
                   </option>
                 ))}
               </select>
+              Companies: 
               <select
                 className="select"
                 id="company"
-                value={interview.company_id}
+                value={interview.company}
                 onChange={handleFieldChange}
               >
                 {companies.map((company) => (  
@@ -131,17 +144,24 @@ const InterviewEdit = (props) => {
                     </option> 
                 ))}
               </select>
+              Employees:
               <select
                 className="select"
-                id="company"
-                // value={interview.company_id}
+                id="employee"
+                value={interview.employee}
                 onChange={handleFieldChange}
               >
-                {companyEmployees.map((employee) => (  
-                    <option key={employee.id} value={employee.id}>
-                      {employee.name}
-                    </option> 
-                ))}
+                {companyEmployees.length == 0 ? 
+                <option value="" selected>No Employees</option>
+              : 
+              companyEmployees.map((employee) => (  
+                <option key={employee.id} value={employee.id}>
+                  {employee.firstName} {employee.lastName}
+                </option> 
+            ))
+              
+              }
+                
               </select>
               <Button onClick={handleSubmit} fluid size="large">
                 Submit
