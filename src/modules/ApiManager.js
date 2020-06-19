@@ -146,6 +146,17 @@ const ApiManager =  {
                 }, 
                 body: JSON.stringify(interview)
             })
+        }, 
+        updateCompanyFollowedUp(company, token) {
+            return fetch(`${baseUrl}companies/${company.id}`, {
+                method: "PATCH", 
+                headers:{
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify(company)
+            })
         }
 }
 
