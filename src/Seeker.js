@@ -17,6 +17,7 @@ import EmployeeAddForm from "./components/network/employees/EmployeeAddForm"
 import EmployeeEdit from "./components/network/employees/EmployeeEdit"
 import InterviewList from "./components/interviews/InterviewList"
 import InterviewAddForm from "./components/interviews/InterviewAddForm"
+import InterviewEdit from "./components/interviews/InterviewEdit"
 // Seeker holds all routing
 const Seeker = (props) => {
   const [loggedIn, setIsLoggedIn] = useState(false);
@@ -224,6 +225,27 @@ const Seeker = (props) => {
             <>
               <SeekerNav loggedIn={loggedIn} user={user} />
               <InterviewAddForm user={user} token={token} {...props} />
+            </>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/interviews/:interviewId(\d+)/edit"
+        render={(props) =>
+          user == "" && !token ? (
+            props.history.push("/login")
+          )
+          : user == "" ? <Loading /> 
+          : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />
+              <InterviewEdit
+                {...props}
+                user={user}
+                token={token}
+                interviewId={parseInt(props.match.params.interviewId)}
+              />
             </>
           )
         }
