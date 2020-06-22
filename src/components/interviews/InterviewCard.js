@@ -47,11 +47,12 @@ const InterviewCard = (props) => {
         <p>{props.interview.notes}</p>
     {associatedEmployee ? <p>{associatedEmployee.firstName} {associatedEmployee.lastName}</p> : <p>No employees</p>}
     {associatedCompany ? 
-    <Checkbox
+    <>
+    <p>Followed up:</p> <Checkbox
     onChange={toggleChecked}
     checked={associatedCompany.isFollowedUp}
     id="checkbox"
-  />
+  /> </>
     : <p>hi</p>}
         <Button icon onClick={() => props.history.push(`/interviews/${props.interview.id}/edit`)}><Icon name="edit" /></Button>
         <Button icon onClick={handleDelete}>

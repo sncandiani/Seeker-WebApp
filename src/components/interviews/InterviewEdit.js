@@ -69,12 +69,26 @@ const InterviewEdit = (props) => {
       setSelectedEmployee(companyEmployees[0].id);
     }
   };
-  console.log(selectedEmployee)
-  console.log(interview.employee)
+  
   const handleSubmit = (e) => {
     // debugger
     e.preventDefault();
-    if (companyEmployees.length == 0 || companyEmployees.length == 1) {
+    if(parseInt(selectedEmployee) === 0) {
+      const editedInterview = {
+        id: parseInt(props.match.params.interviewId),
+        interviewDate: interview.interviewDate,
+        notes: interview.notes,
+        company_id: parseInt(interview.company),
+        interviewType_id: parseInt(interview.interviewType)
+      };
+      console.log("EDITED INTERVIEW HERE")
+      console.log(editedInterview)
+      ApiManager.updateInterview(editedInterview, props.token)
+      .then(() =>
+        props.history.push(`/interviews`)
+      );
+    } else {
+
       const editedInterview = {
         id: parseInt(props.match.params.interviewId),
         interviewDate: interview.interviewDate,
@@ -83,33 +97,25 @@ const InterviewEdit = (props) => {
         interviewType_id: parseInt(interview.interviewType),
         employee_id: parseInt(selectedEmployee),
       };
-      
+      console.log("EDITED INTERVIEW HERE!!!!!!")
+      console.log(editedInterview)
       ApiManager.updateInterview(editedInterview, props.token)
       .then(() =>
         props.history.push(`/interviews`)
       );
-    } else if (companyEmployees.length > 1){
-      setSelectedEmployee(companyEmployees[0].id)
-      const editedInterview = {
-        id: parseInt(props.match.params.interviewId),
-        interviewDate: interview.interviewDate,
-        notes: interview.notes,
-        company_id: parseInt(interview.company),
-        interviewType_id: parseInt(interview.interviewType),
-        employee_id: parseInt(interview.employee),
-      };
-      ApiManager.updateInterview(editedInterview, props.token)
-      .then(() =>
-        props.history.push(`/interviews`)
-      );
-    } 
+    }
+    
+   
   };
 
   const handleFieldChange = (e) => {
     e.preventDefault();
+
     const stateToChange = { ...interview };
     stateToChange[e.target.id] = e.target.value;
-    setInterview(stateToChange);
+    setInterview(stateToChange); 
+
+    setSelectedEmployee(e.target.value)
   };
 
   useEffect(() => {
@@ -127,7 +133,7 @@ const InterviewEdit = (props) => {
 
   useEffect(() => {
     selectEmployeeConditional();
-  }, [companyEmployees.length]);
+  }, [companyEmployees]);
   return (
     <>
       <div className="updateForm">
@@ -183,20 +189,23 @@ const InterviewEdit = (props) => {
               Employees:
               <select
                 className="select"
-                id="employee"
-                value={interview.employee}
+                id="selectedEmployee"
+                value={selectedEmployee}
                 onChange={handleFieldChange}
               >
                 {companyEmployees.length == 0 ? (
-                  <option value="" selected>
+                  <option value="0" >
                     No Employees
                   </option>
                 ) : (
-                  companyEmployees.map((employee) => (
+                  <>
+                  <option value="0">Employee Unknown</option>
+                 { companyEmployees.map((employee) => (
                     <option key={employee.id} value={employee.id}>
                       {employee.firstName} {employee.lastName}
                     </option>
-                  ))
+                  ))}
+                  </>
                 )}
               </select>
               <Button onClick={handleSubmit} fluid size="large">
