@@ -50,7 +50,6 @@ const InterviewCard = (props) => {
     <p>Followed up:</p> <Checkbox
     onChange={toggleChecked}
     checked={associatedCompany.isFollowedUp}
-    id="checkbox"
   /> </>
     : <p>hi</p>}
         <Button icon onClick={() => props.history.push(`/interviews/${props.interview.id}/edit`)}><Icon name="edit" /></Button>
