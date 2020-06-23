@@ -43,8 +43,6 @@ const Seeker = (props) => {
   // Routing with multiple ternary operators 
   // In order to avoid users routing to pages without logging in
 
-  // !!!TO FIX !!!!
-  // DASHBOARD LOGIN/REGISTER TERNARY ROUTING WITH LOADING PAGE
   return (
     <>
       <Route
@@ -78,7 +76,7 @@ const Seeker = (props) => {
           : (
             <>
               <SeekerNav loggedIn={loggedIn} user={user} />
-              <Dashboard user={user} />
+              <Dashboard user={user} token={token} />
             </>
           )
         }

@@ -81,7 +81,7 @@ useEffect(() => {
             
                 <Form.Input 
                 id="interviewDate"
-                type="date"
+                type="datetime-local"
                 
                 onChange={handleFieldChange}
                 required/>

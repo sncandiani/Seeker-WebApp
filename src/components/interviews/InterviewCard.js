@@ -19,7 +19,6 @@ const InterviewCard = (props) => {
     const retrieveAssociatedCompany = () => {
         ApiManager.retrieveCompany(props.interview.company_id, props.token)
         .then((company) => {
-            console.log(company)
             setAssociatedCompany(company)
         })
     }
@@ -40,10 +39,10 @@ const InterviewCard = (props) => {
         retrieveEmployee()
         retrieveAssociatedCompany()
     }, [])
-    console.log(associatedCompany)
+    
     return ( 
         <>
-        <p>{props.interview.interviewDate}</p>
+        <p>{props.interview.interviewDate.split("T")[0]}</p>
         <p>{props.interview.notes}</p>
     {associatedEmployee ? <p>{associatedEmployee.firstName} {associatedEmployee.lastName}</p> : <p>No employees</p>}
     {associatedCompany ? 
