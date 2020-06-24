@@ -25,6 +25,8 @@ const Seeker = (props) => {
   const token = sessionStorage.getItem("token");
   const seekerId = sessionStorage.getItem("seekerId");
 
+
+
   const findUser = () => {
     AuthApiManager.getUser(seekerId).then((response) => {
       setUser(response);
