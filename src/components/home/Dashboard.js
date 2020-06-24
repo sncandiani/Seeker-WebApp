@@ -38,24 +38,25 @@ const Dashboard = (props) => {
         setWeekInterviews(interviewArr);
       });
   };
-
+// Get all companies which have not been followed up
   const getCompanies = () => {
     ApiManager.getCompanies(props.token).then((companies) => {
-      setCompanies(companies);
       companies.forEach((company) => {
-          if(company.isFollowedUp === false) {
+          if(company.isFollowedUp === false || company.isFollowedUp === null) {
               companyArr.push(company)
           }
       })
-      setContactedCompanies(companyArr)
+      setCompanies(companyArr)
     });
   };
+//   Get all employees
   const getEmployees = () => {
     ApiManager.getEmployees(props.token).then((employees) => {
       setEmployees(employees);
     });
   };
-
+// Given a list of companies which have not been followed up
+// Check if they are associated with the interviews for that week
   const getWeeksCompanies = () => {
     if (companies && weekInterviews) {
       companies.forEach((company) => {
@@ -126,9 +127,9 @@ const Dashboard = (props) => {
       )}
 
 <p className="dashboardtxt">Companies to follow up with:</p>
-{companyEmployees && contactedCompanies ? (
+{companyEmployees && interviewCompanies ? (
         <ul>
-          {contactedCompanies.map((company) => (
+          {interviewCompanies.map((company) => (
             <li>{company.name} </li>
           ))}
         </ul>
