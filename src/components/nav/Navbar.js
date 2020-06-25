@@ -11,7 +11,7 @@ const SeekerNav = (props) => {
   
   return (
     <>
-* <Navbar id="mySidenav" class="sidenav">
+ <Navbar id="mySidenav" class="sidenav">
         <NavLink href="/dashboard " className="siteName">
           Seeker
         </NavLink>
@@ -29,10 +29,6 @@ const SeekerNav = (props) => {
         )}
       </Navbar>
   
-      
-    
-
-
       
     </>
   );

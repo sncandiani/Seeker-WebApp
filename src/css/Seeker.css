@@ -1,97 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* General , overarching css rules */
+@font-face {
+    font-family: "Sofia-pro";
+    src: url("fonts/sofiapro/Fonts/sofiapro-light.otf");
+    }
+    @font-face {
+        font-family: "Tiempos";
+        src: url("fonts/Tiempos-Font/TiemposHeadline-Medium.otf")
+        }
 
-/* General */
-button {
-    background-color:#ff8427 !important;
-    color: white !important;
-    transition: .3s;
+body { 
+    font-family: "Sofia-pro", sans-serif !important;
 }
+button { 
+    width: 200px;
+    font-family: "Sofia-pro" !important;
+    background-color:#FEBA36 !important;
+    color: #fefeff !important;
+    transition: .5s;
+}
+
 button:hover {
-    background-color: #febe50 !important;
-    transition: .3s;
-    color: white !important;
-}
-/* Home Page */
-
-.home {
-    display: flex;
-    justify-content: space-between;
-    font-size: 50px;
-    color: #02183c !important; 
-    padding-top: 20px;
-    margin: 50px;
-}
-.motto {
-    width: 40% ;
-    height: 60%;
-    padding-right: 50px;
-}
-
-.carousel img {
-    width: 900px !important;
-    height: 500px !important;
-}
-
-/* Login Form */
-.ui{
-    font-family: 'Montserrat', sans-serif !important;
-}
-.ui.message{
-    background-color: white !important;
-    color: #02183c !important;  
-}
-
-.loginForm a {
-    color: #3766A1 !important;
-}
-
-.loginForm h2{
-    color: #02183c !important; 
-}
-
-/* Dashboard */
-
-.dashboardtxt {
-    font-family: 'Montserrat', sans-serif !important;
-    color: #02183c !important; 
-    font-size: 30px;
-}
-
-/* Companies */
-.companyHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.companyHeader .ui {
-    background-color: #ff8427 !important;
-    transition:.3s;
-    width: 50px;
-    height: 50px;
-}
-.companyHeader .ui:hover {
-    background-color: #febe50 !important;
-    transition: .3s;
-}
-
-.companyHeader h1 {  
-    font-family:  'EB Garamond', serif !important;
-    color: #ff8427 !important; 
-}
-
-.companyCards { 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.companyCard {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.companyCard p {
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: "Sofia-pro" !important;
+    background-color: #FEC148 !important;
+    transition: .5s;
 }

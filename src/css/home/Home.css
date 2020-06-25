@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Sofia-pro";
+  src: url("../fonts/sofiapro/Fonts/sofiapro-light.otf");
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("../fonts/Tiempos-Font/TiemposHeadline-Medium.otf");
+}
+.motto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-family: "Tiempos";
+  font-size: 75px;
+  color: #fefeff;
+  border-radius: 25px;
+  margin-left: 20px;
+}
+.motto-2 {
+    color: #fefeff;
+    margin-left: 40px;
+}
+.home { 
+    display: flex;
+    flex-direction: row;
+}
+.homeSeparation {
+    display: flex;
+    flex-direction: row;
+    background-color: #1B0FE6;
+    height: 100vh;
+}
+.mainHome { 
+    display: flex;
+    flex-direction: row;
+    background-color: #fefeff;
+    width: 50%;
+    height: 50%;
+    border-radius: 25px;
+    margin-top: 40px;
+}
+
+.sect1 { 
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.sect1 p { 
+    font-size: 20px;
+}
+.bigSeeker { 
+    font-family: "Tiempos";
+    font-size: 70px !important;
+    color: #1B0FE6;
+    margin: 0px;
+}
+.smallSeeker1 { 
+    background-color: #1B0FE6;
+    border-radius: 5px;
+    margin: 0px;
+    color: #fefeff;
+    padding: 10px;
+    width: 75%;
+}
+.smallSeeker2 {
+    width: 75%;
+    margin: 0px;
+    color: black;
+    padding: 10px;
+    font-size: 16px !important;
+
+}
+.shapes { 
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.circle {
+    height: 80px;
+    width: 80px;
+    border: 3.5px solid #1B0FE6;
+    border-radius: 50%;
+  }
+ 
+.square {
+    height: 80px;
+    width: 80px;
+    background-color: #1B0FE6;
+  }
+.sect2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    padding-right: 20px;
+}
+

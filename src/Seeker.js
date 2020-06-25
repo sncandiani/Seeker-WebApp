@@ -6,7 +6,13 @@ import Loading from "../src/components/Loading";
 import SeekerNav from "../src/components/nav/Navbar";
 import Register from "../src/components/auth/Register";
 import Dashboard from "../src/components/home/Dashboard";
+// css
 import "./css/Seeker.css";
+import "./css/nav/Navbar.css";
+import "./css/home/Home.css";
+import "./css/auth/Login.css";
+import "./css/auth/Register.css"
+import "./css/home/Dashboard.css";
 import "semantic-ui-css/semantic.min.css";
 import AuthApiManager from "../src/modules/auth/AuthApiManager";
 // Companies
@@ -60,7 +66,7 @@ const Seeker = (props) => {
         path="/"
         render={(props) => (
           <>
-            <SeekerNav loggedIn={loggedIn} /> <Home />
+             <Home {...props}/>
           </>
         )}
       />
