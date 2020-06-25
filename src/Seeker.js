@@ -9,15 +9,23 @@ import Dashboard from "../src/components/home/Dashboard";
 import "./css/Seeker.css";
 import "semantic-ui-css/semantic.min.css";
 import AuthApiManager from "../src/modules/auth/AuthApiManager";
+// Companies
 import CompanyList from "./components/network/companies/CompanyList";
 import CompanyAddForm from "./components/network/companies/CompanyAddForm";
 import CompanyDetail from "./components/network/companies/CompanyDetail";
 import CompanyEdit from "./components/network/companies/CompanyEdit";
+// Employees
 import EmployeeAddForm from "./components/network/employees/EmployeeAddForm"
 import EmployeeEdit from "./components/network/employees/EmployeeEdit"
+// Interviews
 import InterviewList from "./components/interviews/InterviewList"
 import InterviewAddForm from "./components/interviews/InterviewAddForm"
 import InterviewEdit from "./components/interviews/InterviewEdit"
+// Applications
+import ApplicationList from "./components/applications/ApplicationList"
+import ApplicationAddForm from "./components/applications/ApplicationAddForm"
+import ApplicationEdit from "./components/applications/ApplicationEdit"
+
 // Seeker holds all routing
 const Seeker = (props) => {
   const [loggedIn, setIsLoggedIn] = useState(false);
@@ -245,6 +253,59 @@ const Seeker = (props) => {
                 user={user}
                 token={token}
                 interviewId={parseInt(props.match.params.interviewId)}
+              />
+            </>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/applications"
+        render={(props) =>
+          user == "" && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading />
+          : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />
+              <ApplicationList user={user} {...props} token={token} />
+            </>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/applications/form"
+        render={(props) =>
+          user == ""  && !token ? (
+            props.history.push("/login")
+          ) 
+          : user == "" ? <Loading />
+          : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />
+              <ApplicationAddForm {...props} user={user} token={token} />
+            </>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/applications/:applicationId(\d+)/edit"
+        render={(props) =>
+          user == "" && !token ? (
+            props.history.push("/login")
+          )
+          : user == "" ? <Loading /> 
+          : (
+            <>
+              <SeekerNav loggedIn={loggedIn} user={user} />
+              <ApplicationEdit
+                {...props}
+                user={user}
+                token={token}
+                applicationId={parseInt(props.match.params.applicationId)}
               />
             </>
           )

@@ -42,6 +42,7 @@ const ApiManager =  {
     retrieveCompany(companyId) {
         return fetch(`${baseUrl}companies/${companyId}`).then(resp => resp.json())
     }, 
+    // Employees
     getEmployees(token) {
         return fetch(`${baseUrl}employees`, {
             method: "GET", 
@@ -93,6 +94,7 @@ const ApiManager =  {
                 body: JSON.stringify(employee)
             })
         }, 
+        // Interviews
         getInterviews(token) {
             return fetch(`${baseUrl}interviews`, {
                 method: "GET", 
@@ -157,7 +159,51 @@ const ApiManager =  {
                 }, 
                 body: JSON.stringify(company)
             })
-        }
+        }, 
+        // Applications 
+        getApplications(token) {
+            return fetch(`${baseUrl}applications`, {
+                method: "GET", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify()
+            }).then(resp => resp.json())
+        }, 
+        addApplication(application, token) {
+            return fetch(`${baseUrl}applications`, {
+                method: "POST", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify(application)
+            })
+        }, 
+        deleteApplication(applicationId) {
+            return fetch(`${baseUrl}applications/${applicationId}`, {
+                method: "DELETE"
+            })
+        }, 
+        retrieveApplication(applicationId) {
+            return fetch(`${baseUrl}applications/${applicationId}`, {
+                method: "GET"
+            }).then(resp => resp.json())
+        }, 
+        updateApplication(application, token) {
+            return fetch(`${baseUrl}applications/${application.id}`, {
+                method: "PUT", 
+                headers:{
+                    "Content-Type": "application/json", 
+                    Accept: "application/json", 
+                    Authorization: `Token ${token}`
+                }, 
+                body: JSON.stringify(application)
+            })
+        },
 }
 
 export default ApiManager

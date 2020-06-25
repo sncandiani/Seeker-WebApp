@@ -22,7 +22,7 @@ const ApplicationList = (props) => {
         {applications ? 
         <>
         {applications.map((application) => (
-        <ApplicationCard key={application.id} application={application} token={props.token} {...props} />
+        <ApplicationCard key={application.id} application={application} getApplications={getApplications} token={props.token} {...props} />
       ))}
         </>
          : 

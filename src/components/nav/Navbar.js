@@ -20,7 +20,7 @@ const SeekerNav = (props) => {
         <>
           <NavLink className="siteLink" href="/network">Network</NavLink>
           <NavLink className="siteLink" href="/interviews">Interviews</NavLink>
-          <NavLink className="siteLink">Applications</NavLink>
+          <NavLink className="siteLink" href="/applications">Applications</NavLink>
           <NavLink onClick ={handleLogout} href="/" className="siteLink">Logout</NavLink>
         </>
         ) : (

@@ -51,7 +51,7 @@ const InterviewCard = (props) => {
     onChange={toggleChecked}
     checked={associatedCompany.isFollowedUp}
   /> </>
-    : <p>hi</p>}
+    : <p>No follow up</p>}
         <Button icon onClick={() => props.history.push(`/interviews/${props.interview.id}/edit`)}><Icon name="edit" /></Button>
         <Button icon onClick={handleDelete}>
         <Icon name="delete" />
