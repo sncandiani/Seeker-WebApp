@@ -3,7 +3,7 @@ import { Navbar, NavLink } from "react-bootstrap";
 import "/Users/sofiac/seeker-web-app/seeker-app/src/css/nav/Navbar.css";
 
 const SeekerNav = (props) => {
-    
+ 
 
     const handleLogout = () => {
     sessionStorage.clear();
@@ -11,8 +11,7 @@ const SeekerNav = (props) => {
   
   return (
     <>
-    
-      <Navbar>
+* <Navbar id="mySidenav" class="sidenav">
         <NavLink href="/dashboard " className="siteName">
           Seeker
         </NavLink>
@@ -29,6 +28,12 @@ const SeekerNav = (props) => {
           </NavLink>
         )}
       </Navbar>
+  
+      
+    
+
+
+      
     </>
   );
 };
