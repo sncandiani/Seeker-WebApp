@@ -41,9 +41,10 @@ const InterviewCard = (props) => {
     }, [])
     
     return ( 
-        <>
+        
+        <div className="card3">
         <p>{props.interview.interviewDate.split("T")[0]}</p>
-        <p>{props.interview.notes}</p>
+        <p className="notes">{props.interview.notes}</p>
     {associatedEmployee ? <p>{associatedEmployee.firstName} {associatedEmployee.lastName}</p> : <p>No employees</p>}
     {associatedCompany ? 
     <>
@@ -56,8 +57,8 @@ const InterviewCard = (props) => {
         <Button icon onClick={handleDelete}>
         <Icon name="delete" />
       </Button>
-      
-        </>
+      </div>
+        
     )
 }
 

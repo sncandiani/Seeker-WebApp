@@ -31,8 +31,22 @@ body{
     background-color: #F8F1EB !important;
 }
 
+/* loading */
+.loadingPage {
+    display: flex;
+    color: #184b3b;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    height: 100vh;
 
+}
 
+.loading { 
+    width: 300px;
+    height: 300px;
+}
 .welcome { 
     font-family: "Tiempos", 'sans-serif';
     font-size: 40px;
@@ -197,6 +211,10 @@ margin-top: 57px !important;
     margin: 40px;
     box-shadow: 6.7px 11px #f9d8ad56 !important;
 }
+.card2 .checkbox { 
+   margin-top: 8px; 
+   width: 10px;
+}
 .btn2 { 
     display: flex;
     justify-content: space-evenly;
@@ -210,4 +228,37 @@ margin-top: 57px !important;
 .checkbox { 
     padding: 0px;
     margin: 0px;
+}
+
+/* Interviews */
+.card3 {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-direction: row;
+    background-color: #fefeff;
+    border-radius: 25px;
+    width: 800px;
+    height: 100px;
+    margin: 40px;
+    box-shadow: 6.7px 11px #f9d8ad56 !important;
+
+}
+.card3 p {
+    display: flex;
+    align-self: center !important;
+}
+.card3 .checkbox { 
+    display: flex;
+    align-self: center !important;
+    margin-bottom: 10px;
+}
+
+.card3 button {
+    width: 5%;
+    background-color: #fefeff !important;
+    color: #78B9BA !important;
+}
+.card3 .card { 
+    margin: 5px;
 }

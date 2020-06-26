@@ -20,7 +20,7 @@ const InterviewList = (props) => {
         <p className="welcome2">Interviews</p>
         <Button className="add" icon onClick={() => props.history.push("/interviews/form")}><Icon name="plus"/></Button>
         </div>
-        <div className="interviewCards">
+        <div className="cards">
         {interviews ? 
         <>
         {interviews.map((interview) => (

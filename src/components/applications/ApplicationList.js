@@ -20,7 +20,7 @@ const ApplicationList = (props) => {
         <p className="welcome2">Applications</p>
         <Button className="add" icon onClick={() => props.history.push("/applications/form")}><Icon name="plus"/></Button>
         </div>
-        <div className="applicationCards">
+        <div className="cards">
         {applications ? 
         <>
         {applications.map((application) => (
