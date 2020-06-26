@@ -16,8 +16,10 @@ const InterviewList = (props) => {
     }, [])
     return (
         <>
-        <h1>Interviews</h1>
-        <Button icon onClick={() => props.history.push("/interviews/form")}><Icon name="plus"/></Button>
+        <div className="header">
+        <p className="welcome2">Interviews</p>
+        <Button className="add" icon onClick={() => props.history.push("/interviews/form")}><Icon name="plus"/></Button>
+        </div>
         <div className="interviewCards">
         {interviews ? 
         <>

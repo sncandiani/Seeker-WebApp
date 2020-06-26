@@ -91,6 +91,7 @@ const Seeker = (props) => {
           ) 
           : (
             <>
+            {/* <Loading /> */}
               <SeekerNav loggedIn={loggedIn} user={user} />
               <Dashboard user={user} token={token} />
             </>

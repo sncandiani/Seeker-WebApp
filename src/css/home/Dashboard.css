@@ -7,19 +7,11 @@
     src: url("../fonts/Tiempos-Font/TiemposHeadline-Medium.otf");
   }
 
-
-.dashWelcome { 
-    font-family: "Tiempos", 'sans-serif';
-    font-size: 50px;
-    color: #6375CF;
-    height: fit-content;
-    width: fit-content;
-    background-color: #DCDCF9;
-    border-radius: 40% 0% 4600% 0%;
-    padding: 50px;
-} 
+.dash { 
+    background-color: #F8F1EB;
+}
 .dashboardBigTxt { 
-    color: #6375CF;
+    color: black;
     font-size: 30px;
     font-family: "Sofia-pro", 'sans-serif';
 }
@@ -31,11 +23,18 @@
     display: flex;
     font-family: "Tiempos", 'sans-serif';
     justify-content: center;
-    color: #6375CF;
+    color: #F7B954;
     font-size: 40px;
     
 }
-
+.dashboardBigTxtSum2 { 
+    display: flex;
+    font-family: "Tiempos", 'sans-serif';
+    justify-content: center;
+    color: black;
+    font-size: 40px;
+    
+}
 .sum {
     display: flex;
     justify-content: center;
@@ -51,3 +50,4 @@
     justify-content: center;
     font-size: 25px;
 }
+

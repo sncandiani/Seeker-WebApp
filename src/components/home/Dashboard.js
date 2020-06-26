@@ -107,10 +107,10 @@ const Dashboard = (props) => {
   return (
     <>
     <div className="dash">
-      <p className="dashWelcome">Welcome, {user.username}!</p>
+      <p className="welcome">Welcome, {user.username}!</p>
       <div>
       {currentWeek ? <p className="dashboardBigTxtSum">{currentWeek[0].split("2020-")[1]} to {currentWeek[6].split("2020-")[1]} </p> : <p></p>}
-      <p className="dashboardBigTxtSum">Current Week Summary </p>
+      <p className="dashboardBigTxtSum2">Current Week Summary </p>
     
       </div>
       <p className="dashboardBigTxt">Your upcoming interviews:</p>

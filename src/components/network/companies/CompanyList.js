@@ -21,9 +21,10 @@ const CompanyList = (props) => {
   }, []);
   return (
     <>
-      <div className="companyHeader">
-        <h1>Companies</h1>
+      <div className="header">
+        <p className="welcome2">Companies</p>
         <Button
+        className="add"
           icon
           onClick={() => props.history.push("/network/company/form")}
         >
@@ -31,7 +32,7 @@ const CompanyList = (props) => {
         </Button>
       </div>
       
-      <div className="companyCards">
+      <div className="cards">
       {companies.map((company) => (
         <CompanyCard key={company.id} company={company} {...props} />
       ))}

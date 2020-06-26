@@ -8,27 +8,25 @@
         }
 
 .ui.center.aligned.header {
-    color: #4459C5;
+    color: #498C8D;
     font-family: "Sofia-pro"
 }
-.icon { 
-    color: blue;
-}
+
 
 .ui.message {  
     background-color: #fefeff !important;
 }
 
 .loginForm a { 
-    color: #4459C5;
+    color: #F7B954;
 }
 .loginForm a:hover {
-    color: #6375CF
+    color: #f5c476
 }
 
 
 .ui.center.aligned.middle.grid {
-    background-color: #DCDCF9 !important;
+    background-color: #F8F1EB !important;
     margin-top: 40px;
     border-radius: 40% 0%;
     box-shadow: 0 !important;
