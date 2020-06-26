@@ -78,7 +78,7 @@ useEffect(() => {
           <Grid textAlign="center" style={{ height: "100vh" }}>
             <Grid.Column style={{ maxWidth: 450 }}>
               <Form size="large">
-            
+              Interview Date:
                 <Form.Input 
                 id="interviewDate"
                 type="datetime-local"
@@ -92,6 +92,7 @@ useEffect(() => {
                   onChange={handleFieldChange}
                   required
                 />
+                Interview Types:
                 <select
                 className="select"
                 id="interviewTypeList"
@@ -107,6 +108,7 @@ useEffect(() => {
                     );
                 })}
                 </select>
+                Companies:
                 <select
                 className="select"
                 id="companyList"

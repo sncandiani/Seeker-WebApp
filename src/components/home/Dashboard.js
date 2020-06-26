@@ -92,6 +92,8 @@ const Dashboard = (props) => {
     setCompanyEmployees(employeeArr)
   };
 
+
+
   useEffect(() => {
     getWeeksInterviews();
     getCompanies();
@@ -117,7 +119,7 @@ const Dashboard = (props) => {
       {weekInterviews ? (
         <ul>
           {weekInterviews.map((interview) => (
-            <li className="item">{interview.interviewDate.split("T")[0]} </li>
+            <li className="item">{interview.interviewDate.split("T")[0].split("2020-")[1]} </li>
           ))}
         </ul>
       ) : (
