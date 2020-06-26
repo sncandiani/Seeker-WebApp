@@ -7,7 +7,7 @@ const Home = (props) => {
       <section className="home">
         <div className="motto">
           <p>Your job hunt,</p>
-          <p className="motto-2">on your terms.</p>
+          <p className="motto-2">on your ter<span class="blue">ms.</span></p>
         </div>
       </section>
       <section className="mainHome">
@@ -25,7 +25,7 @@ const Home = (props) => {
             <div class="square"></div>
           </div>
             <div className="sect3">
-            <Button onClick={() => props.history.push("/login")}>Log In</Button>
+            <Button onClick={() => props.history.push("/login")}>Get Started</Button>
           </div>
           </div>
 

@@ -52,7 +52,9 @@ const Login = (props) => {
     
   return (
     <>
+   
       <div className="loginForm">
+      
         <Grid
           textAlign="center"
           style={{ height: "100vh" }}
@@ -60,10 +62,10 @@ const Login = (props) => {
         >
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" textAlign="center">
-              Log-in to your account
+              Sign in 
             </Header>
             <Form size="large">
-              <Segment stacked>
+              
                 <Form.Input
                   fluid
                   icon="user"
@@ -87,7 +89,7 @@ const Login = (props) => {
                 <Button onClick={handleLogin} fluid size="large">
                   Login
                 </Button>
-              </Segment>
+              
             </Form>
             <Message>
               New to Seeker? <a href="/register">Sign Up</a>
