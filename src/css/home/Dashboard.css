@@ -18,8 +18,36 @@
     border-radius: 40% 0% 4600% 0%;
     padding: 50px;
 } 
-/* .dash {
+.dashboardBigTxt { 
+    color: #6375CF;
+    font-size: 30px;
+    font-family: "Sofia-pro", 'sans-serif';
+}
+.dashboardBigTxt {
+    display: flex;
+    justify-content: center;
+}
+.dashboardBigTxtSum { 
+    display: flex;
+    font-family: "Tiempos", 'sans-serif';
+    justify-content: center;
+    color: #6375CF;
+    font-size: 40px;
+    
+}
+
+.sum {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #DCDCF9;
-    border-radius: 50% 50% 50% 50%;
     height: 100vh;
-} */
+    border-radius: 40% 0%;
+}
+
+.item {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
