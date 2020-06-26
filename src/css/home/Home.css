@@ -6,33 +6,48 @@
   font-family: "Tiempos";
   src: url("../fonts/Tiempos-Font/TiemposHeadline-Medium.otf");
 }
+
 .motto {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   font-family: "Tiempos";
+  background-color: #fefeff;
   font-size: 75px;
-  color: #fefeff;
-  border-radius: 25px;
+  color:  #6375CF;
   margin-left: 20px;
 }
 .motto-2 {
-    color: #fefeff;
+    /* background-color:  #4459C5; */
+    height: 100%;
+    border-radius: 460% 4% 0%;
     margin-left: 40px;
+    background-color: #DCDCF9;
+    color: #6375CF;
+    padding-top: 40px;
+    margin-right: 30px;
+    
 }
 .home { 
     display: flex;
     flex-direction: row;
+    background-color: #fefeff;
+    border-radius: 111% 350% 0% 0%;
+    color: #fefeff;
+    padding:0px;
+    width: fit-content
 }
 .homeSeparation {
     display: flex;
     flex-direction: row;
-    background-color: #1B0FE6;
+    background-color:  #DCDCF9;
+    border-radius: 30% 0% 55% 55%;
     height: 100vh;
 }
 .mainHome { 
     display: flex;
     flex-direction: row;
+    margin-left: 50px;
     background-color: #fefeff;
     width: 50%;
     height: 50%;
@@ -53,13 +68,13 @@
 .bigSeeker { 
     font-family: "Tiempos";
     font-size: 70px !important;
-    color: #1B0FE6;
+    color:  #4459C5;
     margin: 0px;
 }
 .smallSeeker1 { 
-    background-color: #1B0FE6;
-    border-radius: 5px;
+    background-color:  #6375CF;
     margin: 0px;
+    border-radius: 15px;
     color: #fefeff;
     padding: 10px;
     width: 75%;
@@ -79,14 +94,14 @@
 .circle {
     height: 80px;
     width: 80px;
-    border: 3.5px solid #1B0FE6;
+    border: 3.5px solid  #4459C5;
     border-radius: 50%;
   }
  
 .square {
     height: 80px;
     width: 80px;
-    background-color: #1B0FE6;
+    background-color:  #4459C5;
   }
 .sect2 {
     display: flex;

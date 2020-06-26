@@ -11,16 +11,20 @@
 body { 
     font-family: "Sofia-pro", sans-serif !important;
 }
+
+/* Buttons */
 button { 
     width: 200px;
     font-family: "Sofia-pro" !important;
     background-color:#FEBA36 !important;
     color: #fefeff !important;
     transition: .5s;
+    border-radius: 25px !important;
 }
 
 button:hover {
     font-family: "Sofia-pro" !important;
-    background-color: #FEC148 !important;
+    background-color: #fac354 !important;
     transition: .5s;
 }
+
