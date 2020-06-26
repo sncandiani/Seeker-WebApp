@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Sofia-pro";
+    src: url("../fonts/sofiapro/Fonts/sofiapro-light.otf");
+  }
+  @font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos-Font/TiemposHeadline-Medium.otf");
+  }
+
+
+.dashWelcome { 
+    font-family: "Tiempos", 'sans-serif';
+    font-size: 50px;
+    color: #6375CF;
+    height: fit-content;
+    width: fit-content;
+    background-color: #DCDCF9;
+    border-radius: 40% 0% 4600% 0%;
+    padding: 50px;
+} 
+/* .dash {
+    background-color: #DCDCF9;
+    border-radius: 50% 50% 50% 50%;
+    height: 100vh;
+} */

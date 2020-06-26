@@ -28,7 +28,11 @@ const Dashboard = (props) => {
     ApiManager.getInterviews(props.token)
       .then((interviews) => {
         interviews.forEach((interview) => {
-          const newDate = interview.interviewDate.split("T")[0];
+          const newDate = interview.interviewDate
+          
+
+
+
           if (week.includes(newDate)) {
             interviewArr.push(interview);
           }
@@ -102,8 +106,9 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <p className="dashboardtxt">Welcome, {user.username}!</p>
-      <p className="dashboardtxt">This upcoming weeks summary </p>
+    <div className="dash">
+      <p className="dashWelcome">Welcome, {user.username}!</p>
+      <p className="dashboardBigtxt">This upcoming weeks summary </p>
       <p className="dashboardtxt">Your upcoming interviews:</p>
       {weekInterviews ? (
         <ul>
@@ -137,6 +142,7 @@ const Dashboard = (props) => {
       : (
         <h1>No companies to follow up with</h1>
       )}
+      </div>
     </>
   );
 };

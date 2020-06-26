@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Navbar, NavLink } from "react-bootstrap";
+import {Icon} from "semantic-ui-react"
 import "/Users/sofiac/seeker-web-app/seeker-app/src/css/nav/Navbar.css";
 
 const SeekerNav = (props) => {
- 
+    
 
     const handleLogout = () => {
     sessionStorage.clear();
@@ -11,25 +12,19 @@ const SeekerNav = (props) => {
   
   return (
     <>
- <Navbar id="mySidenav" class="sidenav">
+    
+      <Navbar>
         <NavLink href="/dashboard " className="siteName">
           Seeker
         </NavLink>
-        {props.user ? (
-        <>
+       <div className="secondaryLinks">
           <NavLink className="siteLink" href="/network">Network</NavLink>
           <NavLink className="siteLink" href="/interviews">Interviews</NavLink>
           <NavLink className="siteLink" href="/applications">Applications</NavLink>
           <NavLink onClick ={handleLogout} href="/" className="siteLink">Logout</NavLink>
-        </>
-        ) : (
-          <NavLink href="/login" className="siteLink">
-            Login
-          </NavLink>
-        )}
+          </div>
+       
       </Navbar>
-  
-      
     </>
   );
 };
