@@ -22,18 +22,19 @@ const EmployeeCard = (props) => {
   // The employee's isContacted value
   return (
     <>
-      <p>
+    <div className="card2">
+      <p className="name2">
         {props.employee.firstName} {props.employee.lastName}
       </p>
-      <p>{props.employee.position}</p>
+      <p className="industry2">{props.employee.position}</p>
       {props.employee.notes ? (
         <>
-          <p>{props.employee.notes}</p>
+          <p className="notes2">{props.employee.notes}</p>
         </>
       ) : (
-        <p>No notes</p>
+        <p className="notes2">No notes</p>
       )}
-
+  <div className="btn2">
       <Checkbox
         onChange={toggleChecked}
         checked={props.employee.isContacted}
@@ -53,6 +54,8 @@ const EmployeeCard = (props) => {
       <Button icon onClick={handleDelete}>
         <Icon name="delete" />
       </Button>
+      </div>
+      </div>
     </>
   );
 };

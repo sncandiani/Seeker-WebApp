@@ -41,12 +41,14 @@ const InterviewCard = (props) => {
     }, [])
     
     return ( 
-        <>
+        
+        <div className="card3">
         <p>{props.interview.interviewDate.split("T")[0]}</p>
-        <p>{props.interview.notes}</p>
-    {associatedEmployee ? <p>{associatedEmployee.firstName} {associatedEmployee.lastName}</p> : <p>No employees</p>}
+        <p >{props.interview.notes}</p>
+    {/* {associatedEmployee ? <p>{associatedEmployee.firstName} {associatedEmployee.lastName}</p> : <p>No employees</p>} */}
     {associatedCompany ? 
     <>
+    <p>{associatedCompany.name} </p>
     <p>Followed up:</p> <Checkbox
     onChange={toggleChecked}
     checked={associatedCompany.isFollowedUp}
@@ -56,8 +58,8 @@ const InterviewCard = (props) => {
         <Button icon onClick={handleDelete}>
         <Icon name="delete" />
       </Button>
-      
-        </>
+      </div>
+        
     )
 }
 

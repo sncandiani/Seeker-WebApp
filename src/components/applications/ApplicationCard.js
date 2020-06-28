@@ -28,12 +28,14 @@ const ApplicationCard = (props) => {
     return ( 
        
         <>
+        <div className="card3"> 
         <p>{props.application.company}</p>
         <p>{props.application.position}</p>
          <Button icon onClick={() => props.history.push(`/applications/${props.application.id}/edit`)}><Icon name="edit" /></Button>
         <Button icon onClick={handleDelete}>
         <Icon name="delete" />
       </Button>
+      </div>
         </>
     )
 }

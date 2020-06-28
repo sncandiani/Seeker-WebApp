@@ -17,19 +17,22 @@ const Dashboard = (props) => {
   const interviewCompanyArr = [];
   const employeeArr = [];
   const companyArr = [];
-
+  const week = [];
+  const [currentWeek, setCurrentWeek] = useState()
   const getWeeksInterviews = () => {
     // Relative every time, the weeks interviews is the current day the upcoming entire week
-    const week = [];
+    
     for (let i = 0; i < 7; i++) {
       week.push(moment().add(i, "days").format().split("T")[0]);
+      
     }
+    setCurrentWeek(week)
     // Get only the interviews which have a date that includes the date in the week
     ApiManager.getInterviews(props.token)
       .then((interviews) => {
         interviews.forEach((interview) => {
-          const newDate = interview.interviewDate.split("T")[0];
-          if (week.includes(newDate)) {
+          const newDate = interview.interviewDate
+          if (week.includes(newDate.split("T")[0])) {
             interviewArr.push(interview);
           }
         });
@@ -89,6 +92,8 @@ const Dashboard = (props) => {
     setCompanyEmployees(employeeArr)
   };
 
+
+
   useEffect(() => {
     getWeeksInterviews();
     getCompanies();
@@ -98,27 +103,33 @@ const Dashboard = (props) => {
   useEffect(() => {
     getWeeksCompanies();
     getCompanyEmployees();
+    
   }, [companies, weekInterviews, employees]);
 
   return (
     <>
-      <p className="dashboardtxt">Welcome, {user.username}!</p>
-      <p className="dashboardtxt">This upcoming weeks summary </p>
-      <p className="dashboardtxt">Your upcoming interviews:</p>
+    <div className="dash">
+      <p className="welcome">Welcome, {user.username}!</p>
+      <div>
+      {currentWeek ? <p className="dashboardBigTxtSum">{currentWeek[0].split("2020-")[1]} to {currentWeek[6].split("2020-")[1]} </p> : <p></p>}
+      <p className="dashboardBigTxtSum2">Current Week Summary </p>
+    
+      </div>
+      <p className="dashboardBigTxt">Your upcoming interviews:</p>
       {weekInterviews ? (
         <ul>
           {weekInterviews.map((interview) => (
-            <li>{interview.interviewDate.split("T")[0]} </li>
+            <li className="item">{interview.interviewDate.split("T")[0].split("2020-")[1]} </li>
           ))}
         </ul>
       ) : (
         <h1>No Interviews</h1>
       )}
-      <p className="dashboardtxt">Who to contact next:</p>
+      <p className="dashboardBigTxt">Who to contact next:</p>
       {companyEmployees ? (
         <ul>
           {companyEmployees.map((employee) => (
-            <li>{employee.firstName} {employee.lastName} </li>
+            <li className="item">{employee.firstName} {employee.lastName} </li>
           ))}
         </ul>
       ) 
@@ -126,17 +137,18 @@ const Dashboard = (props) => {
         <h1>No one to contact</h1>
       )}
 
-<p className="dashboardtxt">Companies to follow up with:</p>
+<p className="dashboardBigTxt">Companies to follow up with:</p>
 {companyEmployees && interviewCompanies ? (
         <ul>
           {interviewCompanies.map((company) => (
-            <li>{company.name} </li>
+            <li className="item">{company.name} </li>
           ))}
         </ul>
       ) 
       : (
         <h1>No companies to follow up with</h1>
       )}
+      </div>
     </>
   );
 };

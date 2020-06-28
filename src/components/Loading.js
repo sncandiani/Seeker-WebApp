@@ -1,8 +1,11 @@
 import React from "react"
+import loading from  "../images/loading.gif"
 
 const Loading = () => {
     return (
-        <h1>Loading</h1>
+        <div className="loadingPage">
+        <img className="loading" src={loading} alt="loading..." />
+        </div>
     )
 }
 

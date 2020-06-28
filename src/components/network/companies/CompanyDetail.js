@@ -59,13 +59,16 @@ const CompanyDetail = (props) => {
 
   return (
     <>
-      <p>{company.name}</p>
-      <p>
+    <div className="detail">
+      <p className="name">{company.name}</p>
+      <p className="industry">
         {company.city}, {company.state}
       </p>
-      <p>{company.industry}</p>
-      {company.notes ? <p>{company.notes}</p> : <p></p>}
+      <p className="industry">{company.industry}</p>
+      {company.notes ? <p className="notes">{company.notes}</p> : <p></p>}
+      <div className="buttons">
       <Button
+      
         icon
         onClick={() =>
           props.history.push(`/network/companies/${company.id}/edit`)
@@ -76,14 +79,17 @@ const CompanyDetail = (props) => {
       <Button icon onClick={handleDelete}>
         <Icon name="delete" />
       </Button>
-      <h1>Employees</h1>
+      </div>
+      <div className="header">
+      <p className="welcome3">Employees</p>
         <Button
           icon
           onClick={() => props.history.push(`/companies/${company.id}/employee/form`)}
         >
           <Icon name="plus" />
         </Button>
-      <div className="employeeCards">
+        </div>
+      <div className="cards">
           
         
           {employees.map((employee) => (
@@ -91,6 +97,7 @@ const CompanyDetail = (props) => {
           ))}
             
            
+      </div>
       </div>
     </>
   );

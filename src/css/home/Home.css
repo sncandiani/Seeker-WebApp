@@ -12,18 +12,18 @@
   flex-direction: column;
   justify-content: space-evenly;
   font-family: "Tiempos";
-  background-color: #fefeff;
+  background-color: #F8F1EB;
   font-size: 75px;
-  color:  #6375CF;
+  color:  #78B9BA;
   margin-left: 20px;
 }
 .motto-2 {
-    /* background-color:  #4459C5; */
+    /* background-color:  #174585; */
     height: 100%;
     border-radius: 460% 4% 0%;
     margin-left: 40px;
-    background-color: #DCDCF9;
-    color: #6375CF;
+    background-color: #F9D8AD;
+    color: #78B9BA;
     padding-top: 40px;
     margin-right: 30px;
     
@@ -31,7 +31,7 @@
 .home { 
     display: flex;
     flex-direction: row;
-    background-color: #fefeff;
+    background-color: #F8F1EB;
     border-radius: 111% 350% 0% 0%;
     color: #fefeff;
     padding:0px;
@@ -40,7 +40,7 @@
 .homeSeparation {
     display: flex;
     flex-direction: row;
-    background-color:  #DCDCF9;
+    background-color:  #F9D8AD;
     border-radius: 30% 0% 55% 55%;
     height: 100vh;
 }
@@ -68,11 +68,11 @@
 .bigSeeker { 
     font-family: "Tiempos";
     font-size: 70px !important;
-    color:  #4459C5;
+    color:  #498C8D;
     margin: 0px;
 }
 .smallSeeker1 { 
-    background-color:  #6375CF;
+    background-color:  #78B9BA;
     margin: 0px;
     border-radius: 15px;
     color: #fefeff;
@@ -94,14 +94,14 @@
 .circle {
     height: 80px;
     width: 80px;
-    border: 3.5px solid  #4459C5;
+    border: 3.5px solid  #F7B954;
     border-radius: 50%;
   }
  
 .square {
     height: 80px;
     width: 80px;
-    background-color:  #4459C5;
+    border: 3.5px solid  #498C8D;
   }
 .sect2 {
     display: flex;

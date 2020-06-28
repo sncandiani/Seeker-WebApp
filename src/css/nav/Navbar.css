@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Sofia-pro";
+  src: url("../fonts/sofiapro/Fonts/sofiapro-light.otf");
+}
+@font-face {
+  font-family: "Tiempos";
+  src: url("../fonts/Tiempos-Font/TiemposHeadline-Medium.otf");
+}
+
+nav {
+    background-color: #F8F1EB !important;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+nav a {
+    color: black !important;
+}
+.siteName {
+    font-size: 35px;
+    transition: .3s;
+    font-family: "Tiempos", sans-serif !important;
+    color: #498C8D!important;
+}
+.siteLink {
+    font-size: 15px;
+    transition: .3s;
+    color: black !important;
+    font-family: 'Sofia-pro', sans-serif !important;
+}
+.navbar-brand:hover {
+    color: #8fc6c7!important;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #78B9BA !important;
+    transition: .3s;
+}
+.secondaryLinks { 
+  display: flex;
+  flex-direction: row;
+}
+

@@ -16,9 +16,11 @@ const ApplicationList = (props) => {
     }, [])
     return (
         <>
-        <h1>applications</h1>
-        <Button icon onClick={() => props.history.push("/applications/form")}><Icon name="plus"/></Button>
-        <div className="applicationCards">
+        <div className="header">
+        <p className="welcome2">Applications</p>
+        <Button className="add" icon onClick={() => props.history.push("/applications/form")}><Icon name="plus"/></Button>
+        </div>
+        <div className="cards">
         {applications ? 
         <>
         {applications.map((application) => (
